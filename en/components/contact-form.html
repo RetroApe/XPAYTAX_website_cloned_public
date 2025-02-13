@@ -1,0 +1,90 @@
+
+<div class="little-title">
+    <span></span>
+    <p>Contact Us</p>
+    <span></span>
+</div>
+<h2>Take Control of Your Finances!</h2>
+
+<div class="recaptcha-flag">
+    <div onmouseover="showFlag()" onmouseout="hideFlag()"></div>
+    <div>
+        <div onmouseover="showFlag()" onmouseout="hideFlag()">
+            <p>protected by reCAPTCHA</p>
+            <p><a href="https://www.google.com/intl/en/policies/privacy/" target="_blank">Privacy</a> - <a href="https://www.google.com/intl/en/policies/terms/" target="_blank">Terms</a></p>
+        </div>
+    </div>
+</div>
+
+<form action="../includes/sendmail.php" method="POST" novalidate>
+    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+
+    <div class="form_info">
+        <span>
+            <label for="name">Name*</label>
+            <span class="invalid">Required</span>
+            <input type="text" id="name" name="name">
+        </span>
+        <span>
+            <label for="email">Email*</label>
+            <span class="invalid">Invalid</span>
+            <input type="email" id="email" name="email">
+        </span>
+        <span>
+            <label for="phone">Phone</label> 
+            <input type="tel" id="phone" name="phone">
+        </span>
+    </div>
+
+    <span>
+        <label for="message">Message*</label>
+        <span class="invalid">Required</span>
+        <textarea id="message" name="message" rows="4" required
+        placeholder="Whether you have specific questions or need full accounting support, share your situation, and we’ll guide you forward."></textarea>
+    </span>
+
+    <span id="privacy-content">
+        <span class="invalid"></span>
+        <input type="checkbox" id="privacy-check" name="privacy-check" required>
+        <label for="privacy-check">I agree to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a></label>
+        <p>We will use your contact data solely to respond to your inquiry.</p>
+    </span>
+
+
+    <button class="cta" type="submit">Send Message</button>
+
+</form>
+
+<div id="overlay-form" class="" onclick="dismissMessage()"></div>
+
+<div id="success" class="flex form-response">
+
+    <div class="img-wrap"><img src="../assets/icons/email-success.png" alt="email successfully sent icon" loading="lazy"></div>
+
+    <h2>Thank you for getting in touch!</h2>
+    
+    <p>Hi <span class="use-client-name"></span>.</p>
+    <p>We will get back in touch with you as soon as possible.</p>
+    <p><span>Have a great day!</span></p>
+    
+    <button class="cta" onclick="dismissMessage()">Close</button>
+
+</div>
+
+<div id="failure" class="flex form-response">
+
+    <div class="img-wrap"><img src="../assets/icons/email-fail.png" alt="email failed to be sent icon" loading="lazy"></div>
+
+    <h2>Somehing went wrong</h2>
+    
+    <p>Hi <span class="use-client-name"></span>.</p>
+    <p>It seems there was a problem in sending the message.</p>
+    <p>Please try again or call us directly.</p>
+    
+    <button class="cta" onclick="dismissMessage()">Close</button>
+
+</div>
+
+<div id="loader">
+    <div class="loader"></div>
+</div>

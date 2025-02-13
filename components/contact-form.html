@@ -1,0 +1,90 @@
+
+<div class="little-title">
+    <span></span>
+    <p>Kontaktieren uns</p>
+    <span></span>
+</div>
+<h2>Ihre Finanzen, Ihre Kontrolle!</h2>
+
+<div class="recaptcha-flag">
+    <div onmouseover="showFlag()" onmouseout="hideFlag()"></div>
+    <div>
+        <div onmouseover="showFlag()" onmouseout="hideFlag()">
+            <p>protected by reCAPTCHA</p>
+            <p><a href="https://www.google.com/intl/en/policies/privacy/" target="_blank">Privacy</a> - <a href="https://www.google.com/intl/en/policies/terms/" target="_blank">Terms</a></p>
+        </div>
+    </div>
+</div>
+
+<form action="includes/sendmail.php" method="POST" novalidate>
+    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+
+    <div class="form_info">
+        <span>
+            <label for="name">Name*</label>
+            <span class="invalid">Erforderlich</span>
+            <input type="text" id="name" name="name" autocomplete="name" >
+        </span>
+        <span>
+            <label for="email">Email*</label>
+            <span class="invalid">Ungültig</span>
+            <input type="email" id="email" name="email" autocomplete="email" >
+        </span>
+        <span>
+            <label for="phone">Telefon</label> 
+            <input type="tel" id="phone" name="phone" autocomplete="tel" >
+        </span>
+    </div>
+
+    <span>
+        <label for="message">Nachricht*</label>
+        <span class="invalid">Erforderlich</span>
+        <textarea id="message" name="message" rows="4" required
+        placeholder="Ganz gleich, ob Sie spezielle Fragen haben oder umfassende Unterstützung bei der Buchhaltung benötigen, teilen Sie uns Ihre Situation mit, und wir werden Sie weiter begleiten."></textarea>
+    </span>
+
+    <span id="privacy-content">
+        <span class="invalid"></span>
+        <input type="checkbox" id="privacy-check" name="privacy-check" required>
+        <label for="privacy-check">Ich akzeptiere die <a href="privacy-policy.html" target="_blank">Privacy Policy</a></label>
+        <p>Wir werden Ihre Kontaktdaten ausschließlich zur Beantwortung Ihrer Anfrage verwenden.</p>
+    </span>
+
+
+    <button class="cta" type="submit">Nachricht senden</button>
+
+</form>
+
+<div id="overlay-form" class="" onclick="dismissMessage()"></div>
+
+<div id="success" class="flex form-response">
+
+    <div class="img-wrap"><img src="assets/icons/email-success.png" alt="Symbol für erfolgreich gesendete E-Mail" loading="lazy"></div>
+
+    <h2>Danke, dass Sie sich gemeldet haben!</h2>
+    
+    <p>Hallo <span class="use-client-name"></span>.</p>
+    <p>Wir werden uns so bald wie möglich mit Ihnen in Verbindung setzen.</p>
+    <p><span>Ich wünsche Ihnen einen schönen Tag!</span></p>
+    
+    <button class="cta" onclick="dismissMessage()">Schließen</button>
+
+</div>
+
+<div id="failure" class="flex form-response">
+
+    <div class="img-wrap"><img src="assets/icons/email-fail.png" alt="E-Mail konnte nicht gesendet werden Symbol" loading="lazy"></div>
+
+    <h2>Irgendetwas ist schief gelaufen</h2>
+    
+    <p>Hallo <span class="use-client-name"></span>.</p>
+    <p>Anscheinend gab es ein Problem beim Senden der Nachricht.</p>
+    <p>Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.</p>
+    
+    <button class="cta" onclick="dismissMessage()">Schließen</button>
+
+</div>
+
+<div id="loader">
+    <div class="loader"></div>
+</div>
